@@ -13,7 +13,7 @@ module.exports = {
     })
   }
 
-  getOneB(req, res, next) {
+  getOneG(req, res, next) {
     grapplingDb.getOneGGym(req.params.id)
     .then(data => {
       res.locals.grappling = data;
@@ -34,7 +34,7 @@ module.exports = {
       })
     }
 
-    editBGym(req, res, next) {
+    editGGym(req, res, next) {
       grapplingDb.updateGGyms(req.body)
       .then(data => {
         res.locals.grappling = data;
