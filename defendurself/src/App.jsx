@@ -1,26 +1,19 @@
-import React, { Component } from 'react';
-import './App.css';
-// import { Link } from 'react-router-dom';
-
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Welcome to Defend Urself</h1>
-        </header>
-        <p className="intro">
-          Choose a gym which fits you the best!
-        </p>
-        <div className="boxing-pic">
-          <img src={'http://res.cloudinary.com/dc6dj6gen/image/upload/v1527608591/Agoura-Boxing-Gym-Adult-Man-Training-On-Punching-Bag-1.jpg'}/>
-        </div>
+import React from 'react'
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Boxing      from './Boxing';
+import Grappling   from './Grappling';
+import Home        from './Home';
 
 
-      </div>
 
-    );
-  }
+export default function App () {
+      return (
+          <div>
+            <Switch>
+                  <Route exact path='/Boxing' component={Boxing} />
+                  <Route exact path='/Grappling' component={Grappling} />
+                  <Route exact path='/' component={Home} />
+              </Switch>
+            </div>
+      )
 }
-
-export default App;

@@ -1,4 +1,4 @@
-.App {
+.Home {
   text-align: center;
 }
 
@@ -7,14 +7,14 @@
   height: 80px;
 }
 
-.App-header {
+.Home-header {
   background-color: #222;
   height: 150px;
   padding: 20px;
   color: white;
 }
 
-.App-title {
+.Home-title {
   font-size: 1.5em;
 }
 
@@ -41,6 +41,17 @@
   background-size: cover;
   position: relative;
   left: 800px;
-  top: -300px;
+  top: -320px;
 }
 
+.boxing-link{
+ position: relative;
+ right: 350px;
+ top: 100px;
+}
+
+.grappling-link{
+  position: relative;
+  top: -320px;
+  left: 350px;
+}

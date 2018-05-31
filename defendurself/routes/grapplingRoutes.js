@@ -1,7 +1,7 @@
-const express = require('express');
-const grapplingRoutes = express.Router();
-const grapController  = require('../controllers/grapController');
-
+const express             = require('express');
+const grapplingRoutes     = express.Router();
+const grapController      = require('../controllers/grapController');
+const grapViewController  = require('../controllers/grapViewController');
 
 function sendThisError(err, req, res, next) {
   res.status(500).json({
@@ -10,14 +10,20 @@ function sendThisError(err, req, res, next) {
   })
 }
 
-boxingRoutes.route('/grappling')
-    .get(grapController.allGrapplingGyms)
+grapplingRoutes.route('/show')
+.get(grapController.allGrapplingGyms, grapViewController.lookingAtGrapGyms, sendThisError)
+.post(grapController.makeGrapplingGym, grapController.allGrapplingGyms, grapViewController.lookingAtGrapGyms, sendThisError);
 
-boxingRoutes.route('/:grappling_id')
-    .get(grapController.getOneG)
-    .put(grapController.updateGrapGym)
-    .post(grapController.editGGym)
-    .delete(grapController.destoryGrapplingGym);
+grapplingRoutes.route('/gym/:id')
+.get(grapController.getOneG, grapViewController.showOneGrapGym, sendThisError)
+.delete(grapController.destoryGrapplingGym, grapViewController.deleteGrapGym);
 
+grapplingRoutes.route('/new')
+.get(grapViewController.makeNewGrapGym, sendThisError);
+
+grapplingRoutes.route('/:id/edit')
+.get(grapController.getOneG, grapViewController.editGrapGym, sendThisError)
+.put(grapController.updateGrapGym);
 
 module.exports = grapplingRoutes;
+
