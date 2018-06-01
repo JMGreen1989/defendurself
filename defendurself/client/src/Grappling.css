@@ -1,0 +1,21 @@
+.Grappling-header {
+  position: center;
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.Grappling-title{
+ position: relative;
+ left: 500px;
+}
+
+.grapplingdesc{
+line-height: 1.5;
+margin: auto;
+padding: 20vh 0vh 15vh 0vh;
+background-color: white;
+text-align: justify;
+width: 70%;
+}

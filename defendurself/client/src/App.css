@@ -1,0 +1,46 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.boxing-pic{
+  height:400px;
+  width: 400px;
+  background: url('http://res.cloudinary.com/dc6dj6gen/image/upload/v1527608591/Agoura-Boxing-Gym-Adult-Man-Training-On-Punching-Bag-1.jpg');
+  background-position: left;
+  background-size: cover;
+  position: relative;
+  left: 100px;
+  top: 100px;
+}
+
+.grappling-pic{
+  height:400px;
+  width: 400px;
+  background: url('http://res.cloudinary.com/dc6dj6gen/image/upload/v1527780477/Jiu-Jitsu-nyc.jpg');
+  background-position: right;
+  background-size: cover;
+  position: relative;
+  left: 800px;
+  top: -300px;
+}
+
