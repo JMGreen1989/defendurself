@@ -1,19 +1,21 @@
-const boxingDb    = require('../models/boxingModel');
+const boxingDb    = require('../models/boxModel');
 
 
-  function allBoxingGyms(req, res, next) {
+  function allBoxingGyms(req, res) {
     boxingDb.getAllBGyms()
     .then(data => {
-      res.locals.boxing = data;
-      next();
+      res.header("Access-Control-Allow-Origin", "*");
+      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+      res.json(data)
+      console.log('thisis runnning', data)
     })
-    .catch(err=> {
+    .catch(err => {
       next(err);
     })
   }
 
   function getOneB(req, res, next) {
-    boxingDb.getOneBGym(req.params.id)
+    boxingDb.getOneBGym(req.params.box_id)
     .then(data => {
       res.locals.boxing = data;
       next();
@@ -47,7 +49,8 @@ const boxingDb    = require('../models/boxingModel');
     function updateBoxGym(req, res, next) {
       boxingDb.updateBGyms(req.body)
       .then(data => {
-        res.redirect(`/boxing/${req.body.box_id}`)
+        res.locals.boxing = data;
+        next();
       })
       .catch(err => {
         next(err);
@@ -57,7 +60,7 @@ const boxingDb    = require('../models/boxingModel');
     function destoryBoxingGym(req, res){
       boxingDb.deleteBGym(req.params.box_id)
       .then(() => {
-        res.redirect(`./src/App`)
+        next();
       })
       .catch(err => {
         res.status(500).json({

@@ -1,21 +1,20 @@
 const db    = require ('../config/connection');
 
-module.exports = {
 
-    getAllGGyms() {
+    function getAllGGyms() {
       return db.many(`
       SELECT * FROM grappling
         `);
     }
 
-    getOneGGym(id) {
+    function getOneGGym(grap_id) {
       return db.one (`
       SELECT * FROM grappling
       WHERE id = $1`, id
         );
     }
 
-    makeGGym(id) {
+    function makeGGym(grap_id) {
       return db.one (`
       INSERT INTO grappling
       (name, location, style, img)
@@ -24,7 +23,7 @@ module.exports = {
         );
     }
 
-    updateGGyms(id) {
+    function updateGGyms(grap_id) {
       return db.one (`
       UPDATE grappling
       SET name = $/name/, location = $/location/,
@@ -34,7 +33,7 @@ module.exports = {
         );
     }
 
-    deleteGGym(id) {
+    function deleteGGym(grap_id) {
       return db.none (`
         DELETE FROM grappling
         WHERE id = $1`, id
@@ -42,4 +41,10 @@ module.exports = {
 
     }
 
+module.exports = {
+  getAllGGyms,
+  getOneGGym,
+  makeGGym,
+  updateGGyms,
+  deleteGGym
 }

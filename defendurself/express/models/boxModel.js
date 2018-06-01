@@ -1,21 +1,21 @@
 const db    = require ('../config/connection');
 
-module.exports = {
 
-    getAllBGyms() {
+
+    function getAllBGyms() {
       return db.many(`
       SELECT * FROM boxing
         `);
     }
 
-    getOneBGym(id) {
+    function getOneBGym(box_id) {
       return db.one (`
       SELECT * FROM boxing
       WHERE id = $1`, id
         );
     }
 
-    makeBGym(id) {
+    function makeBGym(box_id) {
       return db.one (`
       INSERT INTO boxing
       (name, location, style, img)
@@ -24,7 +24,7 @@ module.exports = {
         );
     }
 
-    updateBGyms(id) {
+    function updateBGyms(box_id) {
       return db.one (`
       UPDATE boxing
       SET name = $/name/, location = $/location/,
@@ -34,7 +34,7 @@ module.exports = {
         );
     }
 
-    deleteBGym(id) {
+    function deleteBGym(box_id) {
       return db.none (`
         DELETE FROM boxing
         WHERE id = $1`, id
@@ -42,4 +42,12 @@ module.exports = {
 
     }
 
+
+
+module.exports = {
+  getAllBGyms,
+  getOneBGym,
+  makeBGym,
+  updateBGyms,
+  deleteBGym
 }

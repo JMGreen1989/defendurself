@@ -1,10 +1,11 @@
-const grapplingDb    = require('../models/boxModel');
+const grapplingDb    = require('../models/grapModel');
 
-module.exports = {
 
-  allGrapplingGyms(req, res, next) {
+
+  function allGrapplingGyms(req, res, next) {
     grapplingDb.getAllGGyms()
     .then(data => {
+      console.log('inside grap controller', data)
       res.locals.grappling = data;
       next();
     })
@@ -13,8 +14,8 @@ module.exports = {
     })
   }
 
-  getOneG(req, res, next) {
-    grapplingDb.getOneGGym(req.params.id)
+  function getOneG(req, res, next) {
+    grapplingDb.getOneGGym(req.params.grap_id)
     .then(data => {
       res.locals.grappling = data;
       next();
@@ -23,7 +24,7 @@ module.exports = {
       next(err);
     })
   }
-    makeGrapplingGym(req, res, next) {
+    function makeGrapplingGym(req, res, next) {
       grapplingDb.makeGGym(req.body)
       .then(data => {
         res.locals.grappling = data;
@@ -34,7 +35,7 @@ module.exports = {
       })
     }
 
-    editGGym(req, res, next) {
+    function editGGym(req, res, next) {
       grapplingDb.updateGGyms(req.body)
       .then(data => {
         res.locals.grappling = data;
@@ -45,27 +46,34 @@ module.exports = {
       })
     }
 
-    updateGrapGym(req, res, next) {
+    function updateGrapGym(req, res, next) {
       grapplingDb.updateBGyms(req.body)
       .then(data => {
-        res.redirect(`/grappling/${req.body.box_id}`)
+        res.locals.grappling = data;
       })
       .catch(err => {
         next(err);
       })
     }
 
-    destoryGrapplingGym(req, res){
-      grapplingDb.deleteBGym(req.params.box_id)
+    function destoryGrapplingGym(req, res){
+      grapplingDb.deleteBGym(req.params.grap_id)
       .then(() => {
-        res.redirect(`./src/App`)
+        next();
       })
-      catch(err => {
+      .catch(err => {
         res.status(500).json({
           message:error.message
         })
       })
     }
 
-  }
+module.exports = {
+  allGrapplingGyms,
+  getOneG,
+  makeGrapplingGym,
+  editGGym,
+  updateGrapGym,
+  destoryGrapplingGym
+}
 
