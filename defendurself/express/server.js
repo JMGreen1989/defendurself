@@ -6,6 +6,7 @@ const boxRouter       = require('./routes/boxingRoutes.js');
 const grapRouter      = require('./routes/grapplingRoutes.js');
 const boxController   = require('./controllers/boxController');
 const grapController  = require('./controllers/grapController');
+const cors            = require('cors');
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(express.static(path.join(__dirname, 'dist')));
+app.use(cors());
 
 app.use('/', boxRouter);
 app.use('/', grapRouter);

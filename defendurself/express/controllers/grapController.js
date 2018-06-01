@@ -1,7 +1,6 @@
 const grapplingDb    = require('../models/grapModel');
 
 
-
   function allGrapplingGyms(req, res, next) {
     grapplingDb.getAllGGyms()
     .then(data => {
