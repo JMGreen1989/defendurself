@@ -2,10 +2,11 @@ const grapplingDb    = require('../models/grapModel');
 
 
   function allGrapplingGyms(req, res, next) {
+    console.log('inside controller', data)
     grapplingDb.getAllGGyms()
     .then(data => {
       console.log('inside grap controller', data)
-      res.locals.grappling = data;
+      res.json(data);
       next();
     })
     .catch(err=> {

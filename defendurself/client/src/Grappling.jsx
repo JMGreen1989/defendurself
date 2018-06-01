@@ -4,6 +4,27 @@ import { Link } from 'react-router-dom';
 
 
 class Grappling extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      boxing:[]
+    };
+}
+
+  componentWillMount() {
+    fetch('http://localhost:3001/grappling', {
+      headers: {
+        'content-type': 'application/json'
+      }
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+        this.setState({grappling:data})
+      })
+
+  }
+
   render(){
     return(
       <div className="Grappling">

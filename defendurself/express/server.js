@@ -18,8 +18,9 @@ app.use(bodyParser.urlencoded({ extended: false}));
 app.use(express.static(path.join(__dirname, 'dist')));
 app.use(cors());
 
-app.use('/', boxRouter);
-app.use('/', grapRouter);
+app.use('/boxing', boxRouter);
+app.use('/grappling', grapRouter);
+
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);

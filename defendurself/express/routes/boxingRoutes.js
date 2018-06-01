@@ -1,4 +1,4 @@
-const express               = require('express');
+// const express               = require('express');
 const boxingRoutes          = require('express').Router();
 const boxingController      = require('../controllers/boxController');
 
@@ -9,7 +9,7 @@ function sendThisError(err, req, res, next) {
   })
 }
 
-boxingRoutes.route('/boxing')
+boxingRoutes.route('/')
   .get(
     boxingController.allBoxingGyms,
     sendThisError

@@ -19,7 +19,7 @@ const db    = require ('../config/connection');
       return db.one (`
       INSERT INTO boxing
       (name, location, style, img)
-      VALYES ($/name/, $/location/, $/style/, $/img/)
+      VALUES ($/name/, $/location/, $/style/, $/img/)
       RETURNING *`, boxing
         );
     }

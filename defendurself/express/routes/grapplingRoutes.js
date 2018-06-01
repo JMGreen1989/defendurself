@@ -1,4 +1,4 @@
-const express             = require('express');
+// const express             = require('express');
 const grapplingRoutes     = require('express').Router();
 const grapController      = require('../controllers/grapController');
 
@@ -9,7 +9,7 @@ function sendThisError(err, req, res, next) {
   })
 }
 
-grapplingRoutes.route('/grappling')
+grapplingRoutes.route('/')
   .get(
     grapController.allGrapplingGyms,
     sendThisError

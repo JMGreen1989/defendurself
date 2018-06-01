@@ -10,7 +10,7 @@ const db    = require ('../config/connection');
     function getOneGGym(grap_id) {
       return db.one (`
       SELECT * FROM grappling
-      WHERE id = $1`, id
+      WHERE grap_id = $1`, id
         );
     }
 
@@ -18,7 +18,7 @@ const db    = require ('../config/connection');
       return db.one (`
       INSERT INTO grappling
       (name, location, style, img)
-      VALYES ($/name/, $/location/, $/style/, $/img/)
+      VALUES ($/name/, $/location/, $/style/, $/img/)
       RETURNING *`, grappling
         );
     }
