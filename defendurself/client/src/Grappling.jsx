@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import './Grappling.css';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 
 class Grappling extends Component {
   constructor(props){
     super(props)
     this.state = {
-      boxing:[]
+      grappling:[]
     };
 }
 
@@ -25,7 +25,21 @@ class Grappling extends Component {
 
   }
 
+  renderItems() {
+      // console.log('inside renderItems')
+      return this.state.grappling.map((elem, i) => (
+          <div key={i} className="grap-container">
+           <img className="grap-image" src={elem.image}/>
+           <div className="grap-info">{elem.name}</div>
+           <div className="grap-type">{elem.type}</div>
+           <div className="grap-location">{elem.location}</div>
+
+          </div>
+      ))
+  }
+
   render(){
+    if(true){ return  ( this.renderItems() ) }
     return(
       <div className="Grappling">
         <header className="Grappling-header">
