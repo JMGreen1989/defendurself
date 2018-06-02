@@ -19,7 +19,7 @@ boxingRoutes.route('/')
     sendThisError
   );
 
-boxingRoutes.route('/:box_id')
+boxingRoutes.route('/:id')
   .get(
     boxingController.getOneB,
     sendThisError

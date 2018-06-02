@@ -2,26 +2,29 @@ const grapplingDb    = require('../models/grapModel');
 
 
   function allGrapplingGyms(req, res, next) {
-    console.log('inside controller', data)
     grapplingDb.getAllGGyms()
     .then(data => {
-      console.log('inside grap controller', data)
-      res.json(data);
-      next();
+      res.header("Access-Control-Allow-Origin", "*");
+      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+      res.json(data)
+      console.log('thisis runnning', data)
     })
-    .catch(err=> {
+    .catch(err => {
       next(err);
     })
   }
 
-  function getOneG(req, res, next) {
-    grapplingDb.getOneGGym(req.params.grap_id)
+  function getOneG(req, res) {
+    grapplingDb.getOneGGym(req.params.id)
     .then(data => {
-      res.locals.grappling = data;
-      next();
+      res.body = data;
+      // console.log(res.body)
+      // next();
+      res.send(res.body);
     })
     .catch(err => {
-      next(err);
+    console.log('something')
+      // next(err);
     })
   }
     function makeGrapplingGym(req, res, next) {
@@ -57,7 +60,7 @@ const grapplingDb    = require('../models/grapModel');
     }
 
     function destoryGrapplingGym(req, res){
-      grapplingDb.deleteBGym(req.params.grap_id)
+      grapplingDb.deleteBGym(req.params.id)
       .then(() => {
         next();
       })

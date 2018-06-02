@@ -7,33 +7,33 @@ const db    = require ('../config/connection');
         `);
     }
 
-    function getOneGGym(grap_id) {
-      return db.one (`
+    function getOneGGym(id) {
+      return db.oneOrNone (`
       SELECT * FROM grappling
-      WHERE grap_id = $1`, id
+      WHERE id = $1`, [id]
         );
     }
 
-    function makeGGym(grap_id) {
+    function makeGGym(id) {
       return db.one (`
       INSERT INTO grappling
-      (name, location, style, img)
-      VALUES ($/name/, $/location/, $/style/, $/img/)
+      (name, location, style, image)
+      VALUES ($/name/, $/location/, $/style/, $/image/)
       RETURNING *`, grappling
         );
     }
 
-    function updateGGyms(grap_id) {
+    function updateGGyms(id) {
       return db.one (`
       UPDATE grappling
       SET name = $/name/, location = $/location/,
-      style = $/style/, img = $/img/, id = $/id/
+      style = $/style/, image = $/image/, id = $/id/
       WHERE id = $/id/
       RETURNING *`, grappling
         );
     }
 
-    function deleteGGym(grap_id) {
+    function deleteGGym(id) {
       return db.none (`
         DELETE FROM grappling
         WHERE id = $1`, id

@@ -8,33 +8,33 @@ const db    = require ('../config/connection');
         `);
     }
 
-    function getOneBGym(box_id) {
-      return db.one (`
+    function getOneBGym(id) {
+      return db.oneOrNone (`
       SELECT * FROM boxing
-      WHERE box_id = $1`, id
+      WHERE id = $1`, [id]
         );
     }
 
-    function makeBGym(box_id) {
+    function makeBGym(id) {
       return db.one (`
       INSERT INTO boxing
-      (name, location, style, img)
-      VALUES ($/name/, $/location/, $/style/, $/img/)
+      (name, location, style, image)
+      VALUES ($/name/, $/location/, $/style/, $/image/)
       RETURNING *`, boxing
         );
     }
 
-    function updateBGyms(box_id) {
+    function updateBGyms(id) {
       return db.one (`
       UPDATE boxing
       SET name = $/name/, location = $/location/,
-      style = $/style/, img = $/img/, id = $/id/
+      style = $/style/, image = $/image/, id = $/id/
       WHERE id = $/id/
       RETURNING *`, boxing
         );
     }
 
-    function deleteBGym(box_id) {
+    function deleteBGym(id) {
       return db.none (`
         DELETE FROM boxing
         WHERE id = $1`, id

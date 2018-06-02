@@ -14,14 +14,17 @@ const boxingDb    = require('../models/boxModel');
     })
   }
 
-  function getOneB(req, res, next) {
-    boxingDb.getOneBGym(req.params.box_id)
+  function getOneB(req, res) {
+    boxingDb.getOneBGym(req.params.id)
     .then(data => {
-      res.locals.boxing = data;
-      next();
+      res.body = data;
+      // console.log(res.body)
+      // next();
+      res.send(res.body);
     })
     .catch(err => {
-      next(err);
+    console.log('something')
+      // next(err);
     })
   }
     function makeBoxingGym(req, res, next) {
@@ -58,7 +61,7 @@ const boxingDb    = require('../models/boxModel');
     }
 
     function destoryBoxingGym(req, res){
-      boxingDb.deleteBGym(req.params.box_id)
+      boxingDb.deleteBGym(req.params.id)
       .then(() => {
         next();
       })

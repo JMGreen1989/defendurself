@@ -5,7 +5,7 @@ DROP TABLE IF EXISTS grappling CASCADE;
 -- DROP TABLE IF EXISTS reference CASCADE;
 
 CREATE TABLE boxing (
- box_id SERIAL PRIMARY KEY,
+ id SERIAL PRIMARY KEY,
  name VARCHAR(128),
  location VARCHAR(128),
  type VARCHAR(128),
@@ -13,7 +13,7 @@ CREATE TABLE boxing (
 );
 
 CREATE TABLE grappling (
- grap_id SERIAL PRIMARY KEY,
+ id SERIAL PRIMARY KEY,
  name VARCHAR(128),
  location VARCHAR(128),
  type VARCHAR(128),

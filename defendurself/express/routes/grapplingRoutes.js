@@ -19,7 +19,7 @@ grapplingRoutes.route('/')
     sendThisError
   );
 
-grapplingRoutes.route('/:grap_id')
+grapplingRoutes.route('/:id')
   .get(
     grapController.getOneG,
     sendThisError
