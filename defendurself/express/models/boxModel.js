@@ -11,7 +11,7 @@ const db    = require ('../config/connection');
     function getOneBGym(box_id) {
       return db.one (`
       SELECT * FROM boxing
-      WHERE id = $1`, id
+      WHERE box_id = $1`, id
         );
     }
 
