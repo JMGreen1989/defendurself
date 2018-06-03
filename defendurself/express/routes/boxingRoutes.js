@@ -25,7 +25,7 @@ boxingRoutes.route('/:id')
     sendThisError
   )
   .put(
-    boxingController.updateBoxGym,
+    boxingController.editBGym,
     sendThisError
   )
   .delete(

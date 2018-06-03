@@ -67,19 +67,10 @@ class Boxing extends Component {
       // console.log('inside renderItems')
       return this.state.boxing.map((elem, i) => (
           <div key={i} className="boxing-container">
-          <div className="boxing">
-          <header className="boxing-header">
-          </header>
-          <p className= "boxingdesc">
-            Below are boxing gyms in the New York City area. Scroll though,
-            find your style and see if they're near by? Is this list missing
-            a gym you know? Add it!
-          </p>
-        </div>
-           <img className="box-image" src={elem.image}/>
            <div className="boxing-info">{elem.name}</div>
            <div className="boxing-type">{elem.type}</div>
            <div className="boxing-location">{elem.location}</div>
+           <img className="box-image" src={elem.image}/>
            <div className="edit">
               <input name="edit gym" placeholder="Edit this gym"
                 onChange={this.editGym}

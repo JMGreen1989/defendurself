@@ -14,12 +14,15 @@ const db    = require ('../config/connection');
         );
     }
 
-    function makeGGym(id) {
+    function makeGGym (body) {
       return db.one (`
-      INSERT INTO grappling
-      (name, location, style, image)
-      VALUES ($/name/, $/location/, $/style/, $/image/)
-      RETURNING *`, grappling
+      INSERT INTO grappling (
+      name, location, type, image
+      ) VALUES (
+      $/name/, $/location/, $/type/, $/image/
+      )
+      RETURNING *
+    `, body
         );
     }
 
@@ -27,7 +30,7 @@ const db    = require ('../config/connection');
       return db.one (`
       UPDATE grappling
       SET name = $/name/, location = $/location/,
-      style = $/style/, image = $/image/, id = $/id/
+      type = $/type/, image = $/image/, id = $/id/
       WHERE id = $/id/
       RETURNING *`, grappling
         );

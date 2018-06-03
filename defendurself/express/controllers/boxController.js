@@ -7,7 +7,7 @@ const boxingDb    = require('../models/boxModel');
       res.header("Access-Control-Allow-Origin", "*");
       res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
       res.json(data)
-      console.log('thisis runnning', data)
+      // console.log('thisis runnning', data)
     })
     .catch(err => {
       next(err);
@@ -30,6 +30,7 @@ const boxingDb    = require('../models/boxModel');
     function makeBoxingGym(req, res, next) {
       boxingDb.makeBGym(req.body)
       .then(data => {
+      console.log('this is data in boxController', data)
         res.locals.boxing = data;
         next();
       })
@@ -39,8 +40,10 @@ const boxingDb    = require('../models/boxModel');
     }
 
     function editBGym(req, res, next) {
+      req.body.id = req.params.id
       boxingDb.updateBGyms(req.body)
       .then(data => {
+        console.log('in editBGym', data)
         res.locals.boxing = data;
         next();
       })
@@ -49,18 +52,18 @@ const boxingDb    = require('../models/boxModel');
       })
     }
 
-    function updateBoxGym(req, res, next) {
-      boxingDb.updateBGyms(req.body)
-      .then(data => {
-        res.locals.boxing = data;
-        next();
-      })
-      .catch(err => {
-        next(err);
-      })
-    }
+    // function updateBoxGym(req, res, next) {
+    //   boxingDb.updateBGyms(req.body)
+    //   .then(data => {
+    //     res.locals.boxing = data;
+    //     next();
+    //   })
+    //   .catch(err => {
+    //     next(err);
+    //   })
+    // }
 
-    function destoryBoxingGym(req, res){
+    function destoryBoxingGym(req, res, next){
       boxingDb.deleteBGym(req.params.id)
       .then(() => {
         next();
@@ -77,7 +80,7 @@ module.exports = {
   getOneB,
   makeBoxingGym,
   editBGym,
-  updateBoxGym,
+  // updateBoxGym,
   destoryBoxingGym
 }
 
