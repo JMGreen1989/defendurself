@@ -10,42 +10,8 @@ class Boxing extends Component {
     this.state = {
       boxing:[]
     };
-    this.addGym = this.addGym.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
-    this.editGym = this.editGym.bind(this);
-    // this.destoryGym = this.destroy.bind(this);
-    // this.refreshFeed = this.refreshFeed.bind(this);
+
 }
-
-  addGym(){
-
-
-  }
-
-  editGym(e){
-    e.persist();
-    e.preventDefault();
-    fetch(`http://localhost:3001/boxing/${this.state.post.id}`, {
-      method: 'PUT',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        'image': this.state.post.image,
-        'description': e.target.value
-      })
-    })
-      .then(() => this.setState ({
-        description: e.target.value
-      }))
-      .then(() => this.boxing());
-    }
-
-  handleSubmit(e){
-      this.refs.editGym.value = '';
-    }
-  destoryGym(){
-
-  }
-
 
 
 
@@ -66,18 +32,15 @@ class Boxing extends Component {
   renderItems() {
       // console.log('inside renderItems')
       return this.state.boxing.map((elem, i) => (
-          <div key={i} className="boxing-container">
+      <div key={i} className="boxing-container">
+        <div className="add-link">
+          <a href="/add">Add a Gym</a>
+        </div>
            <div className="boxing-info">{elem.name}</div>
            <div className="boxing-type">{elem.type}</div>
            <div className="boxing-location">{elem.location}</div>
            <img className="box-image" src={elem.image}/>
-           <div className="edit">
-              <input name="edit gym" placeholder="Edit this gym"
-                onChange={this.editGym}
-                ref="editMe" />
-            <div onClick={this.handleSubmit}><i className="fas fa-pencil-alt"></i></div>
-          </div>
-          </div>
+      </div>
       ))
   }
 

@@ -5,7 +5,7 @@ import registerServiceWorker from './registerServiceWorker';
 import App           from './App';
 import Boxing        from './Boxing';
 import Grappling     from './Grappling';
-// import Gym1          from './BoxingGyms/Gym1';
+import Add           from './add';
 import { BrowserRouter as Router } from 'react-router-dom'
 
 
