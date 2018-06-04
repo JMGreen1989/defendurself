@@ -9,6 +9,8 @@ function sendThisError(err, req, res, next) {
   })
 }
 
+
+//boxing gym routes for getting all and posting a new gym
 boxingRoutes.route('/')
   .get(
     boxingController.allBoxingGyms,
@@ -19,6 +21,8 @@ boxingRoutes.route('/')
     sendThisError
   );
 
+//individual boxing gym routes for getting or updating one
+// also deleting one
 boxingRoutes.route('/:id')
   .get(
     boxingController.getOneB,

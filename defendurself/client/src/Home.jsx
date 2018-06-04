@@ -4,6 +4,8 @@ import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 import Boxing        from './Boxing';
 import Grappling     from './Grappling';
 
+
+// the main home landing page
 class Home extends Component {
   render() {
     return (

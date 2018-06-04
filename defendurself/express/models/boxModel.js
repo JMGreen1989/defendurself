@@ -1,13 +1,14 @@
 const db    = require ('../config/connection');
 
 
-
+    //getting all boxing gym table data
     function getAllBGyms() {
       return db.many(`
       SELECT * FROM boxing
         `);
     }
 
+    //getting one value to display from boxing gym
     function getOneBGym(id) {
       return db.oneOrNone (`
       SELECT * FROM boxing
@@ -15,6 +16,7 @@ const db    = require ('../config/connection');
         );
     }
 
+    //making a new boxing gym
     function makeBGym(body) {
     console.log('in boxmodel', body)
     return db.one(`
@@ -27,6 +29,7 @@ const db    = require ('../config/connection');
     `, body);
   }
 
+    //updating or editing a boxing gym
     function updateBGyms(id) {
       console.log('this is the id', id)
       return db.one (`
@@ -43,6 +46,7 @@ const db    = require ('../config/connection');
         );
     }
 
+    //deleting a boxing gym
     function deleteBGym(id) {
       return db.none (`
         DELETE FROM boxing

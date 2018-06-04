@@ -1,8 +1,11 @@
 const grapplingDb    = require('../models/grapModel');
 
 
+   //all grappling gyms to display, tied into it's model
   function allGrapplingGyms(req, res, next) {
     grapplingDb.getAllGGyms()
+    //had issues getting this to display
+    //thank you to Joe Keohan(TA) and Michael Klopman(SRC tutor)
     .then(data => {
       res.header("Access-Control-Allow-Origin", "*");
       res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -14,6 +17,7 @@ const grapplingDb    = require('../models/grapModel');
     })
   }
 
+    //getting one grappling gym
   function getOneG(req, res) {
     grapplingDb.getOneGGym(req.params.id)
     .then(data => {
@@ -27,6 +31,7 @@ const grapplingDb    = require('../models/grapModel');
       // next(err);
     })
   }
+     //making a new gym
     function makeGrapplingGym(req, res, next) {
       grapplingDb.makeGGym(req.body)
       .then(data => {
@@ -38,6 +43,7 @@ const grapplingDb    = require('../models/grapModel');
       })
     }
 
+    //editing grappling gym
     function editGGym(req, res, next) {
       grapplingDb.updateGGyms(req.body)
       .then(data => {
@@ -49,6 +55,7 @@ const grapplingDb    = require('../models/grapModel');
       })
     }
 
+    //updating grappling gym
     function updateGrapGym(req, res, next) {
       grapplingDb.updateBGyms(req.body)
       .then(data => {
@@ -59,6 +66,7 @@ const grapplingDb    = require('../models/grapModel');
       })
     }
 
+    //deleting gym
     function destoryGrapplingGym(req, res){
       grapplingDb.deleteBGym(req.params.id)
       .then(() => {

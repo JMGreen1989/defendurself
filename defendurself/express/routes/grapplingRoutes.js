@@ -9,6 +9,7 @@ function sendThisError(err, req, res, next) {
   })
 }
 
+//grappling gym routes for getting all and posting a new gym
 grapplingRoutes.route('/')
   .get(
     grapController.allGrapplingGyms,
@@ -19,6 +20,8 @@ grapplingRoutes.route('/')
     sendThisError
   );
 
+//individual grappling gym routes for getting or updating one
+// also deleting one
 grapplingRoutes.route('/:id')
   .get(
     grapController.getOneG,

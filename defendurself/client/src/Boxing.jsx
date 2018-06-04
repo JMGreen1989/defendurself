@@ -4,12 +4,18 @@ import { Link } from 'react-router-dom';
 
 
 
+
+//component for the boxing table
+// adding works, kind of. It doesn't refresh the page but you can add a new gym
+// Joe Keohan helped me map out through the table values to make them display
+// on the screen
 class Boxing extends Component {
   constructor(props){
     super(props)
     this.state = {
       boxing:[]
     };
+    this.destroy = this.destroy.bind(this);
 
 
 }
@@ -30,6 +36,19 @@ class Boxing extends Component {
 
   }
 
+
+  destroy(e,id){
+    e.preventDefault()
+    console.log("delete")
+    fetch(`http://localhost:3001/boxing/${id}`, {
+      method: 'DELETE',
+      headers: ({"content-type": "application/json"})
+    }).then( () => {
+        console.log( 'Deleted' )
+        // window.location.pathname = '/boxing';
+    } ).catch((err) => console.log(err));
+  }
+
   renderItems() {
       // console.log('inside renderItems')
       return this.state.boxing.map((elem, i) => (
@@ -37,26 +56,22 @@ class Boxing extends Component {
         <div className="add-link">
           <a href="/add">Add a Gym</a>
         </div>
-      <div className="delete">
-        <Link to={`/boxing`}><div onClick={() => this.delete(this.props.location.state.id)}></div></Link>
-      </div>
            <div className="boxing-info">{elem.name}</div>
            <div className="boxing-type">{elem.type}</div>
            <div className="boxing-location">{elem.location}</div>
         <div className= "left-line"></div>
            <img className="boxing-image" src={elem.image}/>
         <div className= "right-line"></div>
-
+      <div className="delete">
+        <form onSubmit={(e) => this.destroy(e, i-1)}>
+          <input class="button is-black" type="submit" value="Delete" />
+        </form>
+      </div>
       </div>
       ))
   }
 
-  delete(){
-  fetch(`http://localhost:3001/boxing`, {
-    method: 'DELETE'
-  })
-  .then(() => console.log(this.state.post))
-}
+
   render(){
     if(true)
       { return  ( this.renderItems() ) }

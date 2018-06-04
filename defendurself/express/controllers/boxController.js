@@ -1,8 +1,11 @@
 const boxingDb    = require('../models/boxModel');
 
 
+  //all boxing gyms to display, tied into it's model
   function allBoxingGyms(req, res) {
     boxingDb.getAllBGyms()
+    //had issues getting this to display
+    //thank you to Joe Keohan(TA) and Michael Klopman(SRC tutor)
     .then(data => {
       res.header("Access-Control-Allow-Origin", "*");
       res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -14,6 +17,7 @@ const boxingDb    = require('../models/boxModel');
     })
   }
 
+  //getting one boxing gym
   function getOneB(req, res) {
     boxingDb.getOneBGym(req.params.id)
     .then(data => {
@@ -27,7 +31,8 @@ const boxingDb    = require('../models/boxModel');
       // next(err);
     })
   }
-    function makeBoxingGym(req, res) {
+    //making a new gym
+    function makeBoxingGym(req, res, next) {
       boxingDb.makeBGym(req.body)
       .then(data => {
       console.log('this is data in boxController', data)
@@ -39,6 +44,7 @@ const boxingDb    = require('../models/boxModel');
       })
     }
 
+    //editing a gym
     function editBGym(req, res, next) {
       req.body.id = req.params.id
       boxingDb.updateBGyms(req.body)
@@ -52,6 +58,7 @@ const boxingDb    = require('../models/boxModel');
       })
     }
 
+    //Turns out i don't need this function
     // function updateBoxGym(req, res, next) {
     //   boxingDb.updateBGyms(req.body)
     //   .then(data => {
@@ -63,14 +70,15 @@ const boxingDb    = require('../models/boxModel');
     //   })
     // }
 
-    function destoryBoxingGym(req, res, next){
+    //deleting a gym
+    function destoryBoxingGym(req, res){
       boxingDb.deleteBGym(req.params.id)
       .then(() => {
         next();
       })
       .catch(err => {
         res.status(500).json({
-          message:error.message
+          message:err.message
         })
       })
     }

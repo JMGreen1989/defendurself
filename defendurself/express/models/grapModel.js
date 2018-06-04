@@ -1,12 +1,14 @@
 const db    = require ('../config/connection');
 
 
+    //getting all grappling gym data
     function getAllGGyms() {
       return db.many(`
       SELECT * FROM grappling
         `);
     }
 
+    //getting one value from grappling gym
     function getOneGGym(id) {
       return db.oneOrNone (`
       SELECT * FROM grappling
@@ -14,6 +16,7 @@ const db    = require ('../config/connection');
         );
     }
 
+    //making a new grappling gym
     function makeGGym (body) {
       return db.one (`
       INSERT INTO grappling (
@@ -26,6 +29,7 @@ const db    = require ('../config/connection');
         );
     }
 
+    //updating or editing a current gym
     function updateGGyms(id) {
       return db.one (`
       UPDATE grappling
@@ -36,6 +40,7 @@ const db    = require ('../config/connection');
         );
     }
 
+    //deleting grappling gym
     function deleteGGym(id) {
       return db.none (`
         DELETE FROM grappling

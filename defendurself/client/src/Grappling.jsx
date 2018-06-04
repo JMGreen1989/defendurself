@@ -3,6 +3,8 @@ import './Grappling.css';
 // import { Link } from 'react-router-dom';
 
 
+// Grappling table component
+// Not as fleshed out as the boxing component
 class Grappling extends Component {
   constructor(props){
     super(props)

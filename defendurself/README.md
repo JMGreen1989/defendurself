@@ -69,12 +69,16 @@ http://res.cloudinary.com/dc6dj6gen/image/upload/v1527263331/IMG_4301.jpg
 This app is made for people who are considering self defense classes, but don't know what the right gym or style for them is. By looking over Defend Urself, they will get a comprehensive understanding of what style would fit them best, a convenient location and if it's rated well.  
 
 ## Code Snippet
+Snippet of how my gyms are displayed in my boxing component. This ended up being a LOT harder to do than I expected. 
+http://res.cloudinary.com/dc6dj6gen/image/upload/v1528122642/Screen_Shot_2018-06-04_at_10.29.52_AM.png
 
 
 ## Change Log
-
+Had to scale back a lot due to big issues. Only one of the two tables works properly. 
 
 ## Issues and Resolutions
+Full CRUD has been tough. The add function still doesn't work as well as I want to and I'm not sure. React and Express don't work well with each other. I couldn't get anything to render on either component so Joe, the TA, helped me map through each value in both tables. Took a very, very long time.
+
  
 #### SAMPLE.....
 **ERROR**: I'm actually dealing with an error now that says my .question is not defined in my checkAnswer function. Not sure why this is happening, it was working all day.                             

@@ -4,6 +4,10 @@ import React, { Component } from 'react';
 
 
 
+//component for adding a new gym.
+//each value is bound
+//a submit button is located on the bottom where you can
+//i looked at Project 3 for reference
 class Add extends Component {
     constructor(props){
     super(props)
@@ -11,12 +15,14 @@ class Add extends Component {
       name: '',
       location: '',
       type: '',
+      image: '',
 
     };
   this.post = this.post.bind(this);
   this.handleName = this.handleName.bind(this);
   this.handleLocation = this.handleLocation.bind(this);
   this.handleType = this.handleType.bind(this);
+  this.handleImage = this.handleImage.bind(this);
 
   }
 
@@ -31,6 +37,7 @@ class Add extends Component {
               'name': this.state.name,
               'location': this.state.location,
               'type': this.state.type,
+              'image': this.state.image
         })
     // .then(() => {
     //         this.props.history.push(`/boxing`)
@@ -51,6 +58,10 @@ class Add extends Component {
     this.setState({type: event.target.value})
   }
 
+  handleImage(event){
+    this.setState({image: event.target.value})
+  }
+
 
   render() {
     return(
@@ -67,6 +78,8 @@ class Add extends Component {
           <input name="name" type="text" placeholder="type"
           onChange={this.handleType}/>
           <br/>
+          <input name="name" type="text" placeholder="image"
+          onChange={this.handleImage}/>
           <button type="submit">Add</button>
       </form>
       <Link to="/boxing"><p>Back</p></Link>
