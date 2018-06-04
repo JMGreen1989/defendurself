@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Boxing.css';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 
@@ -10,6 +10,7 @@ class Boxing extends Component {
     this.state = {
       boxing:[]
     };
+
 
 }
 
@@ -36,14 +37,26 @@ class Boxing extends Component {
         <div className="add-link">
           <a href="/add">Add a Gym</a>
         </div>
+      <div className="delete">
+        <Link to={`/boxing`}><div onClick={() => this.delete(this.props.location.state.id)}></div></Link>
+      </div>
            <div className="boxing-info">{elem.name}</div>
            <div className="boxing-type">{elem.type}</div>
            <div className="boxing-location">{elem.location}</div>
-           <img className="box-image" src={elem.image}/>
+        <div className= "left-line"></div>
+           <img className="boxing-image" src={elem.image}/>
+        <div className= "right-line"></div>
+
       </div>
       ))
   }
 
+  delete(){
+  fetch(`http://localhost:3001/boxing`, {
+    method: 'DELETE'
+  })
+  .then(() => console.log(this.state.post))
+}
   render(){
     if(true)
       { return  ( this.renderItems() ) }

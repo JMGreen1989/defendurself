@@ -21,8 +21,9 @@ class Add extends Component {
   }
 
   post(e){
+  console.log(e)
   e.preventDefault();
-    console.log('inpost')
+  console.log('under fetch', fetch)
     fetch('http://localhost:3001/boxing', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
@@ -31,9 +32,9 @@ class Add extends Component {
               'location': this.state.location,
               'type': this.state.type,
         })
-    .then(() => {
-            this.props.history.push(`/boxing`)
-      })
+    // .then(() => {
+    //         this.props.history.push(`/boxing`)
+    //   })
     })
   }
 
@@ -56,7 +57,7 @@ class Add extends Component {
       <div className="addgym">
         <h1 className="gymheader"> Add a gym</h1>
         <p>Add a gym you're familiar with</p>
-      <form onSubmit={this.Add}>
+      <form onSubmit={this.post}>
           <input name="name" type="text" placeholder="Name"
           onChange={this.handleName}/>
           <br/>

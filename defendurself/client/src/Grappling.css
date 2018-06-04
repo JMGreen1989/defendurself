@@ -11,11 +11,75 @@
  left: 500px;
 }
 
-.grapplingdesc{
+/*.grapplingdesc{
 line-height: 1.5;
 margin: auto;
 padding: 20vh 0vh 15vh 0vh;
 background-color: white;
 text-align: justify;
 width: 70%;
+}*/
+
+
+.grap-image{
+  height:400px;
+  width: 400px;
+  background-position: left;
+  background-size: cover;
+  position: relative;
+  left: 100px;
+  top: 100px;
+  padding: 100px;
+
 }
+
+.grap-info{
+  position: relative;
+  left: -4px;
+  top: -4px;
+  font-size: 20px;
+
+}
+
+.grap-type{
+  position: relative;
+  left: -4px;
+  top: -4px;
+  font-size: 20px;
+}
+
+.grap-location{
+  position: relative;
+  left: -4px;
+  top: -4px;
+  font-size: 20px;
+}
+
+/*.left-line{
+  position: relative;
+  border-left: 6px solid black;
+  height: 300px;
+  left: 300px;
+}
+
+.right-line{
+  position: relative;
+  border-right: 6px solid black;
+  height: 300px;
+  left: 50px;
+  left: -300px;
+}*/
+
+.grap-container{
+  position: relative;
+  background-color: white;
+  margin-right: 200px;
+  margin-left: 200px;
+  left: 50px;
+}
+
+.add-link{
+  position: relative;
+  left: 300px;
+}
+

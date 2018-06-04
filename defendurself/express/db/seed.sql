@@ -7,7 +7,7 @@ VALUES
   'http://res.cloudinary.com/dc6dj6gen/image/upload/v1527610649/evolution-t-shirt-muay-thai-white.jpg'),
 ('SHADOWBOX', '28 W 20th St, New York, NY 10001', 'Boxing',
   'http://res.cloudinary.com/dc6dj6gen/image/upload/v1527685551/Shadowbox-5.jpg'),
-('Mendez Bozing', '23 E 26th St, New York, NY 10010', 'Boxing',
+('Mendez Boxing', '23 E 26th St, New York, NY 10010', 'Boxing',
   'http://res.cloudinary.com/dc6dj6gen/image/upload/v1527685937/maxresdefault.jpg'),
 ('Title Boxing Club', '455 W 37th St, New York, NY 10018', 'Boxing',
   'http://res.cloudinary.com/dc6dj6gen/image/upload/v1527686721/TimeOutNY.jpg'),

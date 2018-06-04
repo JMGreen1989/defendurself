@@ -27,11 +27,11 @@ const boxingDb    = require('../models/boxModel');
       // next(err);
     })
   }
-    function makeBoxingGym(req, res, next) {
+    function makeBoxingGym(req, res) {
       boxingDb.makeBGym(req.body)
       .then(data => {
       console.log('this is data in boxController', data)
-        res.locals.boxing = data;
+        res.json(res.body);
         next();
       })
       .catch(err => {
